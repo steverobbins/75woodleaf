@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+$files = glob('src/middle/*.html');
+
+foreach($files as $file) {
+    $name = substr(basename($file), 3);
+    file_put_contents($name, file_get_contents('src/first.html') . file_get_contents($file) . file_get_contents('src/last.html'));
+}
